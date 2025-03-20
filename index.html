@@ -15,7 +15,8 @@
         <section id="lesson">
             <h2>Сабақ тақырыбы: HTML негіздері</h2>
             <p>HTML – веб-беттер жасауға арналған тіл. Ол "HyperText Markup Language" дегенді білдіреді.</p>
-            <p>Мысалы, HTML құрылымы келесідей:</p>
+            <p>Толық ақпарат: <a href="https://kk.wikipedia.org/wiki/HTML" target="_blank">HTML Википедия</a></p>
+            <p>HTML құрылымы келесідей:</p>
             <pre>
                 &lt;!DOCTYPE html&gt;
                 &lt;html&gt;
@@ -37,6 +38,31 @@
             <button onclick="checkAnswer('C')">C) &lt;body&gt;</button>
             <p id="result"></p>
         </section>
+        
+        <section id="additional-lesson">
+            <h2>CSS негіздері</h2>
+            <p>CSS – Cascading Style Sheets, веб-беттің дизайнын жасау үшін қолданылады.</p>
+            <p>Толық ақпарат: <a href="https://kk.wikipedia.org/wiki/CSS" target="_blank">CSS Википедия</a></p>
+            <p>Мысалы, CSS коды:</p>
+            <pre>
+                body {
+                    background-color: lightgray;
+                    font-family: Arial, sans-serif;
+                }
+                h1 {
+                    color: blue;
+                }
+            </pre>
+        </section>
+        
+        <section id="extra-quiz">
+            <h2>CSS бойынша тест</h2>
+            <p>CSS-те түсті өзгерту үшін қандай қасиет қолданылады?</p>
+            <button onclick="checkCSSAnswer('A')">A) color</button>
+            <button onclick="checkCSSAnswer('B')">B) font-size</button>
+            <button onclick="checkCSSAnswer('C')">C) width</button>
+            <p id="css-result"></p>
+        </section>
     </main>
     
     <script>
@@ -47,6 +73,17 @@
                 result.style.color = "green";
             } else {
                 result.innerHTML = "Қате! Дұрыс жауап: &lt;html&gt;";
+                result.style.color = "red";
+            }
+        }
+        
+        function checkCSSAnswer(answer) {
+            let result = document.getElementById("css-result");
+            if (answer === 'A') {
+                result.innerHTML = "Дұрыс жауап!";
+                result.style.color = "green";
+            } else {
+                result.innerHTML = "Қате! Дұрыс жауап: color";
                 result.style.color = "red";
             }
         }
