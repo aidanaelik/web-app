@@ -30,6 +30,23 @@
             </pre>
         </section>
         
+        <section id="video-lesson">
+            <h2>Видео сабақ</h2>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/UB1O30fR-EE" 
+                title="HTML негіздері" frameborder="0" allowfullscreen></iframe>
+        </section>
+        
+        <section id="code-editor">
+            <h2>HTML код жазу</h2>
+            <textarea id="html-code" rows="5" cols="50">
+                <h2>Менің алғашқы парақшам</h2>
+            </textarea>
+            <br>
+            <button onclick="runCode()">Орындау</button>
+            <h3>Нәтиже:</h3>
+            <iframe id="output"></iframe>
+        </section>
+        
         <section id="quiz">
             <h2>Тест сұрағы</h2>
             <p>HTML-де ең негізгі тег қандай?</p>
@@ -77,6 +94,14 @@
             
             document.getElementById('name').value = '';
             document.getElementById('message').value = '';
+        }
+        
+        function runCode() {
+            let code = document.getElementById("html-code").value;
+            let outputFrame = document.getElementById("output").contentWindow.document;
+            outputFrame.open();
+            outputFrame.write(code);
+            outputFrame.close();
         }
     </script>
 </body>
