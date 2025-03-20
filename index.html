@@ -39,29 +39,17 @@
             <p id="result"></p>
         </section>
         
-        <section id="additional-lesson">
-            <h2>CSS негіздері</h2>
-            <p>CSS – Cascading Style Sheets, веб-беттің дизайнын жасау үшін қолданылады.</p>
-            <p>Толық ақпарат: <a href="https://kk.wikipedia.org/wiki/CSS" target="_blank">CSS Википедия</a></p>
-            <p>Мысалы, CSS коды:</p>
-            <pre>
-                body {
-                    background-color: lightgray;
-                    font-family: Arial, sans-serif;
-                }
-                h1 {
-                    color: blue;
-                }
-            </pre>
-        </section>
-        
-        <section id="extra-quiz">
-            <h2>CSS бойынша тест</h2>
-            <p>CSS-те түсті өзгерту үшін қандай қасиет қолданылады?</p>
-            <button onclick="checkCSSAnswer('A')">A) color</button>
-            <button onclick="checkCSSAnswer('B')">B) font-size</button>
-            <button onclick="checkCSSAnswer('C')">C) width</button>
-            <p id="css-result"></p>
+        <section id="feedback">
+            <h2>Пікір қалдыру</h2>
+            <form onsubmit="submitFeedback(event)">
+                <label for="name">Атыңыз:</label>
+                <input type="text" id="name" required><br>
+                <label for="message">Пікіріңіз:</label>
+                <textarea id="message" required></textarea><br>
+                <button type="submit">Жіберу</button>
+            </form>
+            <h3>Пікірлер:</h3>
+            <ul id="feedback-list"></ul>
         </section>
     </main>
     
@@ -77,15 +65,18 @@
             }
         }
         
-        function checkCSSAnswer(answer) {
-            let result = document.getElementById("css-result");
-            if (answer === 'A') {
-                result.innerHTML = "Дұрыс жауап!";
-                result.style.color = "green";
-            } else {
-                result.innerHTML = "Қате! Дұрыс жауап: color";
-                result.style.color = "red";
-            }
+        function submitFeedback(event) {
+            event.preventDefault();
+            let name = document.getElementById('name').value;
+            let message = document.getElementById('message').value;
+            let feedbackList = document.getElementById('feedback-list');
+            
+            let listItem = document.createElement('li');
+            listItem.textContent = `${name}: ${message}`;
+            feedbackList.appendChild(listItem);
+            
+            document.getElementById('name').value = '';
+            document.getElementById('message').value = '';
         }
     </script>
 </body>
