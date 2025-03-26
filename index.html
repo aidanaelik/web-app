@@ -1,9 +1,9 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="kk">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Жасанды Интеллект және Робототехника</title>
+    <title>Жасанды Интеллекттің Даму Кезеңдері</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -20,171 +20,30 @@
         h1 {
             color: #333;
         }
-        .timeline, .robot-list {
-            list-style: none;
-            padding: 0;
-        }
-        .timeline li, .robot-list li {
-            background: #007bff;
-            color: white;
-            padding: 10px;
-            margin: 10px 0;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        .timeline li:hover, .robot-list li:hover {
-            background: #0056b3;
-        }
-        #info, #robot-info {
-            margin-top: 20px;
-            font-size: 18px;
-            color: #333;
-        }
-        .future {
-            margin-top: 30px;
-            padding: 15px;
-            background: #ffcc00;
-            color: black;
-            font-weight: bold;
-            border-radius: 5px;
-        }
-        .quote-box {
-            margin-top: 20px;
-            font-style: italic;
-            color: #666;
-        }
-        .robot-animation {
-            width: 100px;
-            height: 100px;
-            background-color: #ff6600;
-            border-radius: 50%;
-            position: relative;
-            margin: 20px auto;
-            animation: moveRobot 3s infinite alternate;
-        }
-        @keyframes moveRobot {
-            0% { transform: translateX(-50px); }
-            100% { transform: translateX(50px); }
-        }
-        .link-box {
-            margin-top: 20px;
-        }
-        .link-box a {
+        .link-btn {
             display: inline-block;
-            text-decoration: none;
-            background: #28a745;
+            padding: 10px 20px;
+            margin-top: 20px;
+            background-color: #007bff;
             color: white;
-            padding: 10px 15px;
+            text-decoration: none;
+            font-size: 18px;
             border-radius: 5px;
-            font-size: 16px;
-            transition: 0.3s;
         }
-        .link-box a:hover {
-            background: #1e7e34;
+        .link-btn:hover {
+            background-color: #0056b3;
         }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>Жасанды Интеллекттің Даму Кезеңдері</h1>
-        <p>Төмендегі кезеңдердің бірін басып, толық ақпаратты қараңыз.</p>
+        <p>Жасанды интеллекттің дамуы туралы интерактивті Java қосымшасын ашу үшін төмендегі батырманы басыңыз.</p>
+        <a class="link-btn" href="AI_Timeline.jar" download>💻 Java қосымшасын жүктеу</a>
         
-        <ul class="timeline">
-            <li onclick="showInfo('1950')">1950 – ЖИ негіздері қаланды</li>
-            <li onclick="showInfo('1980')">1980 – Сараптамалық жүйелер</li>
-            <li onclick="showInfo('2000')">2000 – Машиналық оқыту</li>
-            <li onclick="showInfo('2020')">2020 – Терең нейрондық желілер</li>
-        </ul>
-        
-        <p id="info">Кезеңді таңдап, толық ақпарат алыңыз.</p>
-
-        <div class="future">
-            🔮 **Болашақтағы ЖИ:** 2050 жылға қарай ЖИ адам деңгейіндегі ойлауды меңгеруі мүмкін.
-        </div>
-
-        <div class="quote-box">
-            <p id="quote">"Жасанды интеллект – болашақтың қозғаушы күші." – (Кездейсоқ дәйексөз)</p>
-        </div>
-
-        <h1>Робототехника және оның даму кезеңдері</h1>
-        <p>Төмендегі робот түрлерін таңдап, олар туралы толық ақпарат алыңыз.</p>
-
-        <ul class="robot-list">
-            <li onclick="showRobotInfo('humanoid')">🤖 Гуманоид роботтар</li>
-            <li onclick="showRobotInfo('industrial')">🏭 Өндірістік роботтар</li>
-            <li onclick="showRobotInfo('space')">🚀 Ғарыштық роботтар</li>
-        </ul>
-
-        <p id="robot-info">Робот түрін таңдап, сипаттамасын қараңыз.</p>
-
-        <div class="robot-animation"></div>
-
-        <div class="link-box">
-            <a href="https://www.ibm.com/artificial-intelligence" target="_blank">🔗 ЖИ туралы көбірек білу</a>
-        </div>
+        <h2>ЖИ және Робототехника</h2>
+        <p>Жасанды интеллект тек бағдарламалық жасақтама ғана емес, ол роботтарда да қолданылады. Төмендегі сілтеме арқылы робототехника туралы ақпаратты көріңіз.</p>
+        <a class="link-btn" href="https://www.robotics.com" target="_blank">🤖 Робототехника</a>
     </div>
-
-    <script>
-        function showInfo(year) {
-            let info = document.getElementById("info");
-            let text = "";
-
-            switch(year) {
-                case '1950':
-                    text = "1950 жылдары Алан Тьюринг ЖИ негізін қалады. Ол Тьюринг тестін ұсынды.";
-                    break;
-                case '1980':
-                    text = "1980 жылдары сараптамалық жүйелер танымал болды, олар арнайы білім негізінде шешім қабылдады.";
-                    break;
-                case '2000':
-                    text = "2000 жылдары машиналық оқыту қарқынды дамыды, деректермен жұмыс істеу тиімдірек бола бастады.";
-                    break;
-                case '2020':
-                    text = "2020 жылдары терең нейрондық желілер мен GPT секілді модельдер жасалды.";
-                    break;
-                default:
-                    text = "Кезең туралы мәлімет жоқ.";
-            }
-
-            info.innerHTML = text;
-        }
-
-        function showRobotInfo(type) {
-            let robotInfo = document.getElementById("robot-info");
-            let text = "";
-
-            switch(type) {
-                case 'humanoid':
-                    text = "🤖 Гуманоид роботтар – адам тәрізді роботтар. Олар жасанды интеллектпен жабдықталып, қозғалысты имитациялайды.";
-                    break;
-                case 'industrial':
-                    text = "🏭 Өндірістік роботтар – зауыттар мен өндіріс орындарында қолданылатын автоматтандырылған құрылғылар.";
-                    break;
-                case 'space':
-                    text = "🚀 Ғарыштық роботтар – NASA және басқа ұйымдар ғарышта зерттеу жүргізу үшін қолданатын автономды құрылғылар.";
-                    break;
-                default:
-                    text = "Робот түрі туралы мәлімет жоқ.";
-            }
-
-            robotInfo.innerHTML = text;
-        }
-
-        // ЖИ туралы кездейсоқ дәйексөздер
-        const quotes = [
-            "\"Жасанды интеллект – болашақтың қозғаушы күші.\"",
-            "\"2050 жылы роботтар біздің әр күнімізге әсер ететін болады.\"",
-            "\"ЖИ адамзаттың ең мықты серігі бола алады.\"",
-            "\"Жасанды интеллект – жаңа революцияның бастамасы.\""
-        ];
-
-        function changeQuote() {
-            let quoteBox = document.getElementById("quote");
-            let randomIndex = Math.floor(Math.random() * quotes.length);
-            quoteBox.innerHTML = quotes[randomIndex];
-        }
-
-        setInterval(changeQuote, 5000); // Әр 5 секунд сайын өзгерту
-    </script>
 </body>
 </html>
