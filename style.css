@@ -3,6 +3,7 @@ body {
     background-color: #f4f4f4;
     text-align: center;
 }
+
 .container {
     max-width: 800px;
     margin: auto;
@@ -10,13 +11,16 @@ body {
     padding: 20px;
     box-shadow: 0px 0px 10px gray;
 }
-h1 {
+
+h1, h2 {
     color: #333;
 }
+
 .timeline, .robot-list {
     list-style: none;
     padding: 0;
 }
+
 .timeline li, .robot-list li {
     background: #007bff;
     color: white;
@@ -24,26 +28,36 @@ h1 {
     margin: 10px 0;
     border-radius: 5px;
     cursor: pointer;
-    text-align: center;
 }
+
 .timeline li:hover, .robot-list li:hover {
     background: #0056b3;
 }
-#info, #robot-info {
-    margin-top: 20px;
-    font-size: 18px;
-    color: #333;
-}
-.future {
-    margin-top: 30px;
-    padding: 15px;
-    background: #ffcc00;
-    color: black;
-    font-weight: bold;
+
+.link-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #28a745;
+    color: white;
+    text-decoration: none;
     border-radius: 5px;
 }
-.quote-box {
-    margin-top: 20px;
-    font-style: italic;
-    color: #666;
+
+.link-btn:hover {
+    background: #218838;
+}
+
+.robot-animation {
+    width: 100px;
+    height: 100px;
+    background-color: #ff6600;
+    border-radius: 50%;
+    position: relative;
+    margin: 20px auto;
+    animation: moveRobot 3s infinite alternate;
+}
+
+@keyframes moveRobot {
+    0% { transform: translateX(-50px); }
+    100% { transform: translateX(50px); }
 }
