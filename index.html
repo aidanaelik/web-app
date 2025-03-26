@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="kk">
 <head>
     <meta charset="UTF-8">
@@ -66,6 +66,22 @@
             0% { transform: translateX(-50px); }
             100% { transform: translateX(50px); }
         }
+        .link-box {
+            margin-top: 20px;
+        }
+        .link-box a {
+            display: inline-block;
+            text-decoration: none;
+            background: #28a745;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+        .link-box a:hover {
+            background: #1e7e34;
+        }
     </style>
 </head>
 <body>
@@ -102,6 +118,10 @@
         <p id="robot-info">Робот түрін таңдап, сипаттамасын қараңыз.</p>
 
         <div class="robot-animation"></div>
+
+        <div class="link-box">
+            <a href="https://www.ibm.com/artificial-intelligence" target="_blank">🔗 ЖИ туралы көбірек білу</a>
+        </div>
     </div>
 
     <script>
