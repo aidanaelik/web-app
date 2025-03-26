@@ -20,14 +20,6 @@ function showInfo(year) {
     }
 
     info.innerHTML = text;
-    speakText(text);
-}
-
-// ✅ Дауыспен оқыту функциясы
-function speakText(text) {
-    let utterance = new SpeechSynthesisUtterance(text);
-    utterance.lang = 'kk-KZ';  // Қазақша оқуы үшін
-    speechSynthesis.speak(utterance);
 }
 
 // ✅ Викторина нәтижесін тексеру
