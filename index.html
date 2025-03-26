@@ -1,115 +1,170 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="kk">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Educational Web App</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Жасанды Интеллект және Робототехника</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            box-shadow: 0px 0px 10px gray;
+        }
+        h1 {
+            color: #333;
+        }
+        .timeline, .robot-list {
+            list-style: none;
+            padding: 0;
+        }
+        .timeline li, .robot-list li {
+            background: #007bff;
+            color: white;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .timeline li:hover, .robot-list li:hover {
+            background: #0056b3;
+        }
+        #info, #robot-info {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #333;
+        }
+        .future {
+            margin-top: 30px;
+            padding: 15px;
+            background: #ffcc00;
+            color: black;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+        .quote-box {
+            margin-top: 20px;
+            font-style: italic;
+            color: #666;
+        }
+        .robot-animation {
+            width: 100px;
+            height: 100px;
+            background-color: #ff6600;
+            border-radius: 50%;
+            position: relative;
+            margin: 20px auto;
+            animation: moveRobot 3s infinite alternate;
+        }
+        @keyframes moveRobot {
+            0% { transform: translateX(-50px); }
+            100% { transform: translateX(50px); }
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <h1>Оқушыларға арналған веб-приложение</h1>
-    </header>
-    
-    <main>
-        <section id="lesson">
-            <h2>Сабақ тақырыбы: HTML және CSS негіздері</h2>
-            <p>HTML – веб-беттер жасауға арналған белгілеу тілі. Ол "HyperText Markup Language" дегенді білдіреді.</p>
-            <p>Толық ақпарат: <a href="https://kk.wikipedia.org/wiki/HTML" target="_blank">HTML Википедия</a></p>
-            <p>CSS – веб-беттердің стилін реттейтін тіл. Ол "Cascading Style Sheets" дегенді білдіреді.</p>
-            <p>Толық ақпарат: <a href="https://kk.wikipedia.org/wiki/CSS" target="_blank">CSS Википедия</a></p>
-            <p>HTML құрылымы келесідей:</p>
-            <pre>
-                &lt;!DOCTYPE html&gt;
-                &lt;html&gt;
-                &lt;head&gt;
-                    &lt;title&gt;Мысал беті&lt;/title&gt;
-                &lt;/head&gt;
-                &lt;body&gt;
-                    &lt;h1&gt;Сәлем, әлем!&lt;/h1&gt;
-                &lt;/body&gt;
-                &lt;/html&gt;
-            </pre>
-        </section>
+    <div class="container">
+        <h1>Жасанды Интеллекттің Даму Кезеңдері</h1>
+        <p>Төмендегі кезеңдердің бірін басып, толық ақпаратты қараңыз.</p>
         
-        <section id="video-lesson">
-            <h2>Видео сабақ</h2>
-            <p>HTML және CSS туралы түсіндірме бейнероликті көріңіз:</p>
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/mU6anWqZJcc" 
-                title="HTML және CSS негіздері" frameborder="0" allowfullscreen></iframe>
-        </section>
+        <ul class="timeline">
+            <li onclick="showInfo('1950')">1950 – ЖИ негіздері қаланды</li>
+            <li onclick="showInfo('1980')">1980 – Сараптамалық жүйелер</li>
+            <li onclick="showInfo('2000')">2000 – Машиналық оқыту</li>
+            <li onclick="showInfo('2020')">2020 – Терең нейрондық желілер</li>
+        </ul>
         
-        <section id="code-editor">
-            <h2>HTML & CSS код жазу</h2>
-            <p>Төмендегі аймаққа HTML және CSS кодын енгізіп, оны орындауға болады:</p>
-            <textarea id="html-code" rows="5" cols="50">
-                <style>
-                    h2 { color: blue; }
-                </style>
-                <h2>Менің алғашқы парақшам</h2>
-            </textarea>
-            <br>
-            <button onclick="runCode()">Орындау</button>
-            <h3>Нәтиже:</h3>
-            <iframe id="output"></iframe>
-        </section>
-        
-        <section id="quiz">
-            <h2>Тест сұрағы</h2>
-            <p>HTML-де ең негізгі тег қандай?</p>
-            <button onclick="checkAnswer('A')">A) &lt;html&gt;</button>
-            <button onclick="checkAnswer('B')">B) &lt;head&gt;</button>
-            <button onclick="checkAnswer('C')">C) &lt;body&gt;</button>
-            <p id="result"></p>
-        </section>
-        
-        <section id="feedback">
-            <h2>Пікір қалдыру</h2>
-            <form onsubmit="submitFeedback(event)">
-                <label for="name">Атыңыз:</label>
-                <input type="text" id="name" required><br>
-                <label for="message">Пікіріңіз:</label>
-                <textarea id="message" required></textarea><br>
-                <button type="submit">Жіберу</button>
-            </form>
-            <h3>Пікірлер:</h3>
-            <ul id="feedback-list"></ul>
-        </section>
-    </main>
-    
+        <p id="info">Кезеңді таңдап, толық ақпарат алыңыз.</p>
+
+        <div class="future">
+            🔮 **Болашақтағы ЖИ:** 2050 жылға қарай ЖИ адам деңгейіндегі ойлауды меңгеруі мүмкін.
+        </div>
+
+        <div class="quote-box">
+            <p id="quote">"Жасанды интеллект – болашақтың қозғаушы күші." – (Кездейсоқ дәйексөз)</p>
+        </div>
+
+        <h1>Робототехника және оның даму кезеңдері</h1>
+        <p>Төмендегі робот түрлерін таңдап, олар туралы толық ақпарат алыңыз.</p>
+
+        <ul class="robot-list">
+            <li onclick="showRobotInfo('humanoid')">🤖 Гуманоид роботтар</li>
+            <li onclick="showRobotInfo('industrial')">🏭 Өндірістік роботтар</li>
+            <li onclick="showRobotInfo('space')">🚀 Ғарыштық роботтар</li>
+        </ul>
+
+        <p id="robot-info">Робот түрін таңдап, сипаттамасын қараңыз.</p>
+
+        <div class="robot-animation"></div>
+    </div>
+
     <script>
-        function checkAnswer(answer) {
-            let result = document.getElementById("result");
-            if (answer === 'A') {
-                result.innerHTML = "Дұрыс жауап!";
-                result.style.color = "green";
-            } else {
-                result.innerHTML = "Қате! Дұрыс жауап: &lt;html&gt;";
-                result.style.color = "red";
+        function showInfo(year) {
+            let info = document.getElementById("info");
+            let text = "";
+
+            switch(year) {
+                case '1950':
+                    text = "1950 жылдары Алан Тьюринг ЖИ негізін қалады. Ол Тьюринг тестін ұсынды.";
+                    break;
+                case '1980':
+                    text = "1980 жылдары сараптамалық жүйелер танымал болды, олар арнайы білім негізінде шешім қабылдады.";
+                    break;
+                case '2000':
+                    text = "2000 жылдары машиналық оқыту қарқынды дамыды, деректермен жұмыс істеу тиімдірек бола бастады.";
+                    break;
+                case '2020':
+                    text = "2020 жылдары терең нейрондық желілер мен GPT секілді модельдер жасалды.";
+                    break;
+                default:
+                    text = "Кезең туралы мәлімет жоқ.";
             }
+
+            info.innerHTML = text;
         }
-        
-        function submitFeedback(event) {
-            event.preventDefault();
-            let name = document.getElementById('name').value;
-            let message = document.getElementById('message').value;
-            let feedbackList = document.getElementById('feedback-list');
-            
-            let listItem = document.createElement('li');
-            listItem.textContent = `${name}: ${message}`;
-            feedbackList.appendChild(listItem);
-            
-            document.getElementById('name').value = '';
-            document.getElementById('message').value = '';
+
+        function showRobotInfo(type) {
+            let robotInfo = document.getElementById("robot-info");
+            let text = "";
+
+            switch(type) {
+                case 'humanoid':
+                    text = "🤖 Гуманоид роботтар – адам тәрізді роботтар. Олар жасанды интеллектпен жабдықталып, қозғалысты имитациялайды.";
+                    break;
+                case 'industrial':
+                    text = "🏭 Өндірістік роботтар – зауыттар мен өндіріс орындарында қолданылатын автоматтандырылған құрылғылар.";
+                    break;
+                case 'space':
+                    text = "🚀 Ғарыштық роботтар – NASA және басқа ұйымдар ғарышта зерттеу жүргізу үшін қолданатын автономды құрылғылар.";
+                    break;
+                default:
+                    text = "Робот түрі туралы мәлімет жоқ.";
+            }
+
+            robotInfo.innerHTML = text;
         }
-        
-        function runCode() {
-            let code = document.getElementById("html-code").value;
-            let outputFrame = document.getElementById("output").contentWindow.document;
-            outputFrame.open();
-            outputFrame.write(code);
-            outputFrame.close();
+
+        // ЖИ туралы кездейсоқ дәйексөздер
+        const quotes = [
+            "\"Жасанды интеллект – болашақтың қозғаушы күші.\"",
+            "\"2050 жылы роботтар біздің әр күнімізге әсер ететін болады.\"",
+            "\"ЖИ адамзаттың ең мықты серігі бола алады.\"",
+            "\"Жасанды интеллект – жаңа революцияның бастамасы.\""
+        ];
+
+        function changeQuote() {
+            let quoteBox = document.getElementById("quote");
+            let randomIndex = Math.floor(Math.random() * quotes.length);
+            quoteBox.innerHTML = quotes[randomIndex];
         }
+
+        setInterval(changeQuote, 5000); // Әр 5 секунд сайын өзгерту
     </script>
 </body>
 </html>
