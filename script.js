@@ -35,3 +35,19 @@ function checkQuiz() {
     let resultText = `Сіздің нәтижеңіз: ${score} / 2`;
     document.getElementById("result").innerText = resultText;
 }
+
+// ЖИ туралы кездейсоқ дәйексөздер
+const quotes = [
+    "\"Жасанды интеллект – болашақтың қозғаушы күші.\"",
+    "\"2050 жылы роботтар біздің әр күнімізге әсер ететін болады.\"",
+    "\"ЖИ адамзаттың ең мықты серігі бола алады.\"",
+    "\"Жасанды интеллект – жаңа революцияның бастамасы.\""
+];
+
+function changeQuote() {
+    let quoteBox = document.getElementById("quote");
+    let randomIndex = Math.floor(Math.random() * quotes.length);
+    quoteBox.innerHTML = quotes[randomIndex];
+}
+
+setInterval(changeQuote, 5000); // Әр 5 секунд сайын өзгерту
