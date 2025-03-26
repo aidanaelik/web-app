@@ -20,34 +20,42 @@ function showInfo(year) {
     }
 
     info.innerHTML = text;
+    speakText(text);
 }
 
+// ✅ Дауыспен оқыту функциясы
+function speakText(text) {
+    let utterance = new SpeechSynthesisUtterance(text);
+    utterance.lang = 'kk-KZ';  // Қазақша оқуы үшін
+    speechSynthesis.speak(utterance);
+}
+
+// ✅ Викторина нәтижесін тексеру
 function checkQuiz() {
     let score = 0;
-    
-    if (document.querySelector('input[name="q1"]:checked')?.value === "b") {
-        score++;
-    }
-    if (document.querySelector('input[name="q2"]:checked')?.value === "a") {
-        score++;
-    }
-    
-    let resultText = `Сіздің нәтижеңіз: ${score} / 2`;
-    document.getElementById("result").innerText = resultText;
+
+    let q1 = document.querySelector('input[name="q1"]:checked');
+    let q2 = document.querySelector('input[name="q2"]:checked');
+
+    if (q1 && q1.value === "b") score++;
+    if (q2 && q2.value === "a") score++;
+
+    document.getElementById("result").innerText = "Сіздің нәтижеңіз: " + score + " / 2";
 }
 
-// ЖИ туралы кездейсоқ дәйексөздер
+// ✅ Кездейсоқ дәйексөз шығару
 const quotes = [
-    "\"Жасанды интеллект – болашақтың қозғаушы күші.\"",
-    "\"2050 жылы роботтар біздің әр күнімізге әсер ететін болады.\"",
-    "\"ЖИ адамзаттың ең мықты серігі бола алады.\"",
-    "\"Жасанды интеллект – жаңа революцияның бастамасы.\""
+    '"Жасанды интеллект – болашақтың қозғаушы күші." – (Аноним)',
+    '"ЖИ – бұл адамзаттың ең үлкен жетістіктерінің бірі." – (Илон Маск)',
+    '"2050 жылға қарай ЖИ адам деңгейіндегі ойлауды меңгеруі мүмкін." – (Рэй Курцвейл)',
+    '"ЖИ-ді басқарудың дұрыс жолын табу – XXI ғасырдың басты мәселесі." – (Стивен Хокинг)',
+    '"Жасанды интеллект – адамзаттың болашағын өзгертетін технология." – (Сундар Пичай)'
 ];
 
-function changeQuote() {
-    let quoteBox = document.getElementById("quote");
+function updateQuote() {
     let randomIndex = Math.floor(Math.random() * quotes.length);
-    quoteBox.innerHTML = quotes[randomIndex];
+    document.getElementById("quote").innerText = quotes[randomIndex];
 }
 
-setInterval(changeQuote, 5000); // Әр 5 секунд сайын өзгерту
+// ✅ 5 секунд сайын жаңа дәйексөз көрсету
+setInterval(updateQuote, 5000);
